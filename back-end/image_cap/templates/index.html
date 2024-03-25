@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+    body {
+        background-color: black;
+        color: rgb(12, 12, 12);
+        font-family: Arial, sans-serif;
+        padding: 50px;
+    }
+    
+    h1 {
+        color: #3498db;
+        font-size: 32px;
+        margin-bottom: 20px;
+        text-align: center;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 30px;
+    }
+    
+    input[type="file"],
+    input[type="submit"] {
+        padding: 12px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        width: 300px;
+        background-color: #3498db;
+        color: white;
+    }
+    
+    input[type="file"] {
+        cursor: pointer;
+    }
+    
+    input[type="submit"] {
+        cursor: pointer;
+        background-color: #e67e22;
+    }
+</style>
+
+<center>
+    <h1 class="display-5">Automated Image</h1>
+    <h1 class="display-5">Captioning</h1>
+    <br>
+    <br>
+    <p class="display-0.2" style="color: white;">Here you can upload an image to describe</p>
+    <form action="{{ url_for('after') }}" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file1">
+        <input type="submit" name="btn" value="Predict Caption" class="btn btn-warning">
+    </form>
+</center>
+
+{% endblock %}
